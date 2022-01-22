@@ -1,5 +1,4 @@
 import numpy as np
-import unittest
 
 class Variable:
     def __init__(self, data):
