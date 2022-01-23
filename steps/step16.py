@@ -89,9 +89,11 @@ class Square(Function):
         gx = 2 * x * gy
         return gx
 
+
 def square(x):
     f = Square()
     return f(x)
+
 
 class Add(Function):
     def forward(self, x0, x1):
@@ -101,9 +103,11 @@ class Add(Function):
     def backward(self, gy):
         return gy, gy
 
+
 def add(x0, x1):
     f = Add()
     return f(x0, x1)
+
 
 x = Variable(np.array(2.0))
 a = square(x)
