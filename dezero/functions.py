@@ -1,13 +1,9 @@
 import numpy as np
-import dezero
-from dezero import cuda, utils
-from dezero.core import Function, Variable, as_variable, as_array
-
+from dezero.core import Function
 
 class Sin(Function):
     def forward(self, x):
-        xp = cuda.get_array_module(x)
-        y = xp.sin(x)
+        y = np.sin(x)
         return y
     
     def backward(self, gy):
@@ -22,8 +18,7 @@ def sin(x):
 
 class Cos(Function):
     def forward(self, x):
-        xp = cuda.get_array_module(x)
-        y = xp.cos(x)
+        y = np.cos(x)
         return y
     
     def backward(self, gy):
@@ -39,14 +34,13 @@ def cos(x):
 
 class Tanh(Function):
     def forward(self, x):
-        xp = cuda.get_array_module(x)
-        y = xp.tanh(x)
+        y = np.tanh(x)
         return y
     
     def backward(self, gy):
         y = self.outputs[0]()
         gx = gy * (1 - y * y)
-        return gy
+        return gx
 
 
 def tanh(x):
