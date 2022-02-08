@@ -129,6 +129,10 @@ class Variable:
         return dezero.functions.transpose(self)
 
 
+class Parameter(Variable):
+    pass
+
+
 def as_variable(obj):
     if isinstance(obj, Variable):
         return obj
